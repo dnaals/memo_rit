@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Link from "next/link";
 import "@/comp/style/common.scss";
+import Header from "@/comp/UIUX/Header";
+import Footer from "@/comp/UIUX/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,15 +21,9 @@ export default function RootLayout({
       
         <main>
           <div className="root">
-            <header>
-              <h1>song</h1>
-              <nav>
-                <Link href="/">Note</Link>
-                <Link href="/todo">TodoList</Link>
-              </nav>
-            </header>
+            <Header />
             {children}
-            <footer>풋터</footer>
+            <Footer/>
           </div>
         </main>
         </body>
