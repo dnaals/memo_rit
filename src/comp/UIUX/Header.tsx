@@ -10,8 +10,8 @@ function Header() {
         <header>
               <h1>Memo-Rit</h1>
               <nav>
-                <Link href="/" className={url=="/"?"active":""}>Note</Link>
-                <Link href="/todo" className={url=="/todo"?"active":""}>TodoList</Link>
+                <Link href="/" className={url=="/"?"active":""}>NOTE</Link>
+                <Link href="/todo" className={url=="/todo"?"active":""}>ToDoList</Link>
               </nav>
         </header>
     );

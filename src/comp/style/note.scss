@@ -6,20 +6,28 @@
         margin:0 auto;
         width:70%;
         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+        position: relative;
+        img{
+            position: absolute;
+            top:20%;
+            left:5%;
+            cursor: pointer;
+        }
         input{
             width:100%;
             height:40px;
             border:none;
             border-radius: 15px;
-            background: url('../../../public/images/search.png') no-repeat 20px,0 white;
-            
+            text-align: center;
         }
         input::placeholder{
+            text-align: left;
             padding-left: 60px;
             font-size: 16px;
-            color:#111111;
-            font-weight: bold;
+            color:#b4b4b4;
         }
+        
+        
     }
     .note_screen{
         display:flex;

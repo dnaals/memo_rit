@@ -5,6 +5,7 @@ function Note() {
         <div className='note'>
             <form className='search'>
                 <input type="text" placeholder='검색어를 입력하라' />
+                <img src="/images/search.png" alt="aa" />
             </form>
             <figure className='note_screen'>
                 <figcaption className='note_add'>
