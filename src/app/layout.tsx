@@ -19,15 +19,17 @@ export default function RootLayout({
       <body className={inter.className}>
       
         <main>
-          <header>
-            <h1>song</h1>
-            <nav>
-              <Link href="/">Note</Link>
-              <Link href="/todo">TodoList</Link>
-            </nav>
-          </header>
-          {children}
-          <footer>풋터</footer>
+          <div className="root">
+            <header>
+              <h1>song</h1>
+              <nav>
+                <Link href="/">Note</Link>
+                <Link href="/todo">TodoList</Link>
+              </nav>
+            </header>
+            {children}
+            <footer>풋터</footer>
+          </div>
         </main>
         </body>
     </html>
