@@ -19,11 +19,14 @@
                 margin: 0 10px;
                 font-size: 18px;
                 font-weight: bold;
+                color:#D2D2D4;
                 &.active{
+                    color:#111111;
                     text-decoration: underline;
                     text-decoration-color:#4385F5;
                     text-decoration-thickness : 3px;
                 }
+                
             }
         }
     }
