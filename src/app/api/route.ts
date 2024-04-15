@@ -14,7 +14,6 @@ export async function GET(){
 
 export async function POST(req:any){
     const aa = await req.json();
-    console.log(aa,'------')
     const data = await queryExecute('insert into todo (idx,complete,contents,date) values (?,?,?,?)', [aa.idx,aa.complete,aa.contents,aa.date]);
     // const data = JSON.parse(JSON.stringify(getData))
     return NextResponse.json(data);

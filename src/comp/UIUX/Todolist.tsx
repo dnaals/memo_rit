@@ -4,31 +4,37 @@ import "../style/todo.scss";
 import { useStore } from "../store/todo_store";
 import { format } from 'date-fns'; 
 
-function Todolist({connect}:any) {
+function Todolist() {
+    let {data,dataFetch} = useStore();
+    
     const today = new Date();
+    let formatToday = (format(today,"yyyy.MM.dd"));
     let todayMonth=format(today, "MM");
     let todayDay = format(today,"dd");
     let todayDOW = format(today,"EEE");
-    let [activenum, setActiveNum] = useState(-1);
-    let {data,dataFetch} = useStore();
-    const inputRef = useRef<any>(null);
-    let [inpuvalue,setInputValue] = useState("");
 
+    let [activenum, setActiveNum] = useState(-1);
+    let [activeUp,setActiveUp] = useState(-1);
+
+    const inputRef = useRef<any>(null);
+    const upinputRef = useRef<any>(null);
+
+    let [inpuvalue,setInputValue] = useState("");
+    let [upinpuvalue,setupInputValue] = useState<any>([]);
+    
     const addTodo = (value:string)=>{
         setInputValue(value);
-        
-        // console.log(inputRef.current.value)
     }
     function submit (e:any){
         e.preventDefault();
-        console.log(inpuvalue);
-        const aa = {
-            "idx":11,
-            "complete":"11",
-            "contents":"11",
-            "date":"11"
-        }
-        dataFetch("post",aa)
+        const value = {
+            "idx":Date.now(),
+            "complete": "false",
+            "contents":inpuvalue,
+            "date":formatToday
+        };
+        inputRef.current.value ="";
+        dataFetch("post",value)
     }
 
     const listOn = (key:number)=>{
@@ -38,12 +44,61 @@ function Todolist({connect}:any) {
     const delData = (key:number)=>{
         dataFetch("delete",key)
     }
+
+
+
+    const update = (e:any,key:number)=>{
+        e.preventDefault();
+        const value = {
+            idx:key,
+            contents : upinpuvalue
+        }
+        dataFetch('update',value);
+        setActiveUp(-1);
+    }
+    const updateData = (key:number,data:any)=>{
+        setupInputValue(data)
+        setActiveUp(key === activeUp ? -1 : key);
+        setActiveNum(-1);
+    }
+
+    const complete_btn = (key:number,com:string)=>{
+        const value = {
+            idx : key,
+            contents : com
+        }
+        dataFetch('update',value);
+    }
+
     useEffect(()=>{
         dataFetch("all")
     },[])
-    if(data.length=='') return "로딩중"
+    useEffect(() => {
+        setActiveNum(-1);
+    }, [data.length]);
     
- 
+    
+    const todayData =  data.filter((obj:any)=>obj.date == formatToday);
+    let pastData = data.filter((obj:any)=>obj.date !== formatToday);
+
+    let d:any = {}
+    pastData.forEach((obj:any)=>{
+        const {date,complete,contents,idx} = obj;
+        if(Object.keys(d).includes(date)){
+            d[date] = [ ...d[date],{idx,complete,contents}]
+        }else{
+            d[date] = [{idx,complete,contents}]
+        }
+    })
+    /* 
+    Object.keys(d).map((obj:any)=>{
+        console.log(obj) //날짜
+        d[obj].map((item:any)=>{
+            console.log(item.contents) //내용반복
+        })
+    }) */
+
+    let dataEa = todayData.filter((obj:any)=> obj.complete == 'false');
 
     return (
         <div className='todo'>
@@ -57,30 +112,41 @@ function Todolist({connect}:any) {
                 <input type="text" placeholder="할 일을 입력해주세요" ref={inputRef} onChange={(e)=>addTodo(e.target.value)} />
                 <img src="/images/todo_add.png" alt="" onClick={submit} />
             </form>
-            <h2>남은할일 : {data.length}개</h2>
+            <h2>오늘 할일 : {dataEa.length}개</h2>
             <figure className="todo_screen">
                 {
-                    data.map((obj:any,key:number)=>(
+                    todayData.map((obj:any,key:number)=>(
                         <figcaption key={key}>
-                            <img src={obj.complete ? "/images/no_complete.png":"/images/complete.png" } alt="aa" />
+                            <img src={obj.complete=="false" ? "/images/no_complete.png":"/images/complete.png" } onClick={()=>complete_btn(obj.idx,obj.complete)} alt="aa" />
                             <div onClick={()=>listOn(key)}  className={key === activenum ? "todo_list active" : "todo_list"}>
                                 <p>{obj.contents}</p>
                             </div>
                             <div className={key === activenum ? "menu active" : "menu"}>
-                                <img src="/images/write.png" alt="a" />
+                                <img src="/images/write.png" onClick={()=>updateData(key,obj.contents)} alt="a" />
                                 <img src="/images/delete.png" onClick={()=>delData(obj.idx)} alt="a" />
                             </div>
+                            <form className={key === activeUp ? "update_todo active":"update_todo"} onSubmit={(e)=>update(e,obj.idx)}>
+                                <input type="text" placeholder={obj.contents} ref={upinputRef} value={upinpuvalue} onChange={(e)=>setupInputValue(e.target.value)} />
+                                <button>저장</button>
+                            </form>
                         </figcaption>
                     ))
                 }
             </figure>
-            <div className="past">
-                <p>2024.04.11</p>
-                <div className="past_data">
-                    <img src="/images/no_complete.png" alt="aa" />
-                    <p>과거 데이타</p>
-                </div>
-            </div>
+                {
+                    pastData.map((obj:any,key:number)=>(
+                        <div className="past" key={key}>
+                            <p>{obj.date}</p>
+                            <div className="past_data">
+                            <img src={obj.complete=="false" ? "/images/no_complete.png":"/images/complete.png" } onClick={()=>complete_btn(obj.idx,obj.complete)} alt="aa" />
+                                <p>{obj.contents}</p>
+                            </div>
+                        </div>
+                    
+                    ))
+                }
+
+                
         </div>
     );
 }
