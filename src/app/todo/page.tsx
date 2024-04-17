@@ -1,4 +1,4 @@
-import Todolist from '@/comp/UIUX/Todolist';
+import Todolist from '@/comp/UIUX/todo/Todolist';
 import React from 'react';
 
 

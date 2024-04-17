@@ -1,6 +1,8 @@
 .todo{
     background-color: #F1F4F9;
     padding:20px 0;
+    height:100vh;
+    overflow: hidden;
     .days{
         width:70%;
         margin:20px auto;
@@ -52,120 +54,138 @@
         margin: 20px auto 0 auto ;
         
     }
-    .todo_screen{
-        width:70%;
-        margin:0 auto;
-        overflow: hidden;
-        
-        figcaption{
-            position: relative;
-            .update_todo{
-                display:none;
-                &.active{
-                    display:flex;
-                    position: absolute;
-                    z-index: 100;
-                    top:0;
-                    width:100%;
-                    height:100%;
-                    button{
+    .screenDiv{
+        margin:20px 0;
+        height:400px;
+        overflow: auto;
+        .todo_screen{
+            width:70%;
+            margin:0 auto;
+            overflow: hidden;
+            
+            figcaption{
+                position: relative;
+                .update_todo{
+                    display:none;
+                    &.active{
+                        display:flex;
                         position: absolute;
-                        right:5%;
-                        top:30%;
-                        border:none;
-                        background-color: white;
-                        color:#4385F5;
-                    }
-                    input{
+                        z-index: 100;
+                        top:0;
                         width:100%;
                         height:100%;
-                        border-radius: 15px;    
-                        border:none;
-                        padding-left: 20px;
+                        button{
+                            position: absolute;
+                            right:5%;
+                            top:30%;
+                            border:none;
+                            background-color: white;
+                            color:#4385F5;
+                        }
+                        input{
+                            width:100%;
+                            height:100%;
+                            border-radius: 15px;    
+                            border:none;
+                            padding-left: 20px;
+                        }
+                    }
+                    
+                }
+                >img{
+                    position: absolute;
+                    top:30%;
+                    left:10px;
+                }
+                .menu{
+                    &.active{
+                        display:flex;
+                        align-items: center;
+                    gap:20px;
+                    position: absolute;
+                    top:25%;
+                    right:10%;
+                    }
+                    display:none;
+                    
+                    
+                    img{
+                        width:20px;
+                        height:20px;
                     }
                 }
-                
-            }
-            >img{
-                position: absolute;
-                top:30%;
-                left:10px;
-            }
-            .menu{
-                &.active{
+                .todo_list{
+                    
+                    &.active{transform: translateX(-30%);}
+                    width:100%;
+                    height:60px;
+                    background-color: white;
+                    margin: 10px 0 20px 0;
                     display:flex;
                     align-items: center;
-                gap:20px;
-                position: absolute;
-                top:25%;
-                right:10%;
-                }
-                display:none;
-                
-                
-                img{
-                    width:20px;
-                    height:20px;
+                    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+                    border-radius: 15px;
+                    
+                    p{
+                        padding: 15px 15px 15px 50px;
+                    }
                 }
             }
-            .todo_list{
-                
-                &.active{transform: translateX(-30%);}
-                width:100%;
-                height:60px;
-                background-color: white;
-                margin: 10px 0 20px 0;
-                display:flex;
-                align-items: center;
-                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
-                border-radius: 15px;
-                
-                p{
-                    padding: 15px 15px 15px 50px;
-                }
-            }
+            
         }
-        
     }
+    .screenDiv::-webkit-scrollbar {
+        display: none;
+      }
+
+    .past::-webkit-scrollbar {
+        display: none;
+      }
     .past{
         width:70%;
         margin:0 auto;
         text-align: center;
-        >p{
-            display: flex;
-                    flex-basis: 100%;
-                    align-items: center;
-                    color: #4385F5;
-                    font-size: 14px;
-                    margin: 8px 0;
-
-        }
-        >p::before{
-            content: '';
-            flex-grow: 1;
-            margin: 0 16px;
-            background-color: #4385F5;
-            height: 1px;
-            font-size: 0;
-            line-height: 0;
-        }
-        >p::after{
-            content: '';
-            flex-grow: 1;
-            margin: 0 16px;
-            background-color: #4385F5;
-            height: 1px;
-            font-size: 0;
-            line-height: 0;
-        }
-        .past_data{
-            display:flex;
-            align-items: center;
-            gap:10px;
-            margin-left: 50px;
-            p{
-                color:#D2D2D4;
+        height:220px;
+        overflow: auto;
+        
+        >div{
+            >p{
+                display: flex;
+                        flex-basis: 100%;
+                        align-items: center;
+                        color: #4385F5;
+                        font-size: 14px;
+                        margin: 8px 0;
+    
+            }
+            >p::before{
+                content: '';
+                flex-grow: 1;
+                margin: 0 16px;
+                background-color: #4385F5;
+                height: 1px;
+                font-size: 0;
+                line-height: 0;
+            }
+            >p::after{
+                content: '';
+                flex-grow: 1;
+                margin: 0 16px;
+                background-color: #4385F5;
+                height: 1px;
+                font-size: 0;
+                line-height: 0;
+            }
+            .past_data{
+                display:flex;
+                align-items: center;
+                gap:10px;
+                margin:10px 0 10px 50px;
+                p{
+                    color:#D2D2D4;
+                }
             }
         }
+        
     }
 }

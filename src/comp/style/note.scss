@@ -1,5 +1,136 @@
-.note{
+
+.root{
+    position: relative;
+    .addBack {
+        // background-color: rgba(0, 0%, 0%,0.5);
+        backdrop-filter: brightness(50%);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left:0;
+        z-index: 10;
     
+    }
+    
+    .addMemo {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 11;
+        width: 70%;
+        height: 490px;
+        background-color: #fff;
+        border-radius: 10px;
+    
+        .addMemoC1 {
+            width: 90%;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+    
+            .more {
+                img {
+                    // vertical-align: middle;
+                }
+                .more_more{
+                    display:block;
+                    &.active{
+                        display:none;
+                    }
+                }
+                .more_picture{
+                    display:none;
+                    &.active{
+                        display:inline-block;
+                    }
+                }
+                .more_del{
+                    display:none;
+                    &.active{
+                        display:inline-block;
+                        margin:0 20px;
+                    }
+                }
+            }
+    
+            p {
+                color: #D2D2D4;
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+    
+        .addMemoC2 {
+            width: 90%;
+            margin: 0 auto;
+    
+            >form {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+    
+                input {
+                    width: 100%;
+                    font-size: 18px;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    border: none;
+                }
+    
+                input:focus {
+                    outline: none;
+                }
+    
+                textarea {
+                    width: 100%;
+                    font-size: 18px;
+                    padding: 10px;
+                    border: none;
+                    height: 280px;
+                }
+    
+                textarea:focus {
+                    outline: none;
+                }
+            }
+        }
+    
+        .addMemoC3 {
+            width: 100%;
+            height: 40px;
+            background-color: #D2D2D4;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            border-radius: 0 0 10px 10px;
+    
+            .colorPalette {
+                position: absolute;
+                transform: translateY(-50%);
+                top: 0;
+                left: 7%;
+    
+                img {}
+            }
+    
+            .bookmark {
+                position: absolute;
+                transform: translateY(-50%);
+                right: 8%;
+                top: 5%;
+    
+                img {}
+            }
+        }
+    }
+}
+.note{
+    height:100vh;
     background-color: #F1F4F9;
     padding:20px 0;
     .search{
@@ -31,7 +162,7 @@
         display:flex;
         width:70%;
         margin:20px auto;
-        justify-content: space-between;
+        justify-content: start;
         gap:20px;
         flex-wrap: wrap;
         .note_add{
@@ -53,7 +184,9 @@
                 border-radius: 0 0 15px 15px;
                 display:flex;
                 align-items: center;
-                
+                p{
+                    color:white;
+                }
             }
             
         }
@@ -67,20 +200,32 @@
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
             >p{
                     margin:20px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    word-break: break-word;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1; // 원하는 라인수
+                    -webkit-box-orient: vertical
+            }
+            .note_contents_back{
+                ::after{
+                    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, #FFFFFF 80%);
+                    position: absolute;
+                    left: 0;
+                    top:0;
+                    width:100%;
+                    height:100%;
+                    content: "";
+                }
+                p{
                     font-size: 14px;
                     line-height: normal;
+                    margin:0 20px;
+                }
             }
-            >p:nth-of-type(1){
-                font-size: 16px;
-                font-weight: bold;
-            }
-            >p:nth-of-type(2){
-                background: linear-gradient(180deg, #111111 0%, rgba(102, 102, 102, 0) 60%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                text-fill-color: transparent;
-            }
+            
             >img{
                 position: absolute;
                 bottom:10px;
@@ -99,6 +244,8 @@
                 >p{
                     margin-left: 20px;
                     font-size: 14px;
+                    // font-weight: bold;
+                    color:white;
                 }
             }
         }
