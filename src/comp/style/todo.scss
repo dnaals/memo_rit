@@ -1,8 +1,6 @@
 .todo{
     background-color: #F1F4F9;
     padding:20px 0;
-    height:100vh;
-    overflow: hidden;
     .days{
         width:70%;
         margin:20px auto;
@@ -56,8 +54,6 @@
     }
     .screenDiv{
         margin:20px 0;
-        height:400px;
-        overflow: auto;
         .todo_screen{
             width:70%;
             margin:0 auto;
@@ -134,9 +130,6 @@
             
         }
     }
-    .screenDiv::-webkit-scrollbar {
-        display: none;
-      }
 
     .past::-webkit-scrollbar {
         display: none;
@@ -145,9 +138,8 @@
         width:70%;
         margin:0 auto;
         text-align: center;
-        height:220px;
-        overflow: auto;
-        
+        height:100px;
+        overflow: scroll;
         >div{
             >p{
                 display: flex;
