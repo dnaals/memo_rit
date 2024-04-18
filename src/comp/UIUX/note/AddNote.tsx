@@ -1,16 +1,21 @@
 "use client";
 import React, { useState } from 'react';
 import { format } from 'date-fns'; 
-
+import Upload from '@/comp/service/Upload';
+import { ref, uploadBytes,  getDownloadURL } from "firebase/storage";
+import { storage } from "@/lib/firebase";
 function AddNote({setAddNote,dataFetch2}:any) {
 
     
     const today = new Date();
-    let formatToday = (format(today,"yyyy.MM.dd"));
+    let formatToday = (format(today,"yyyy.MM.dd HH:mm:ss"));
 
     let [title,setTitle] = useState('');
     let [contents,setContents] = useState('');
     let [color,setColor] = useState('#4385F5');
+    let [file,setFile] = useState<any>();
+    let [preImg,setPreImg] = useState('');
+    let [detail,setDetail]= useState(false);
 
     const submit = (e:any)=>{
         e.preventDefault();
@@ -27,38 +32,59 @@ function AddNote({setAddNote,dataFetch2}:any) {
         if(colorIdx==4){
             setColorIdx(0);
         }
-        
     }
 
 
-    const saveBtn= ()=>{
+    const saveBtn= async()=>{
+        let num = Date.now()
+        let url='';
+        if(file){
+            const storageRef = ref(storage, num + "/"+file.name);   
+            const a = await uploadBytes(storageRef, file)       
+            url = await getDownloadURL(ref(storage, a.metadata.fullPath));
+        }
+        
         let data = {
-            id : Date.now(),
+            id : num,
             title : title,
             contents : contents,
             date : formatToday,
             color: color,
-            bookmark : false,
-            url : "",
+            bookmark : "false",
+            url : url,
         }
         dataFetch2("post",data)
         setAddNote(false);
     }
 
-    const [moreClick,setMoreClick]= useState(false);
-
+const uploadClick = ()=>{
+    setDetail(true)
+}
+const detail_del=()=>{
+console.log('삭제')
+}
   return (
     <>
+    {
+    detail? 
+    <>
+        <div className='img_detail_back' onClick={()=>{setDetail(false)}}>
+        </div> 
+        <div className='img_detail'>
+        <p><img src={preImg} onClick={()=>{setDetail(false)}}/></p>
+        <img src="/images/del_white.png" alt="" onClick={detail_del} />
+    </div>
+    </>
+        : ''
+    }
     <div className='addBack' onClick={offClick}></div>
     <article className='addMemo'>
         <div className='addMemoC1'>
-            <div className='more'>
-            <img src="/images/more_gray.png" alt="more_gray" className={moreClick? 'more_more active':'more_more'} onClick={()=>setMoreClick(true)}/>
-            <img src="/images/add_picture.png" alt="aa" className={moreClick? 'more_picture active': 'more_picture'}/>
-            </div>
+            <Upload setFile={setFile} file={file} setPreImg={setPreImg} />
             <p onClick={()=>saveBtn()} style={{color:color}}  >저장</p>
         </div>
         <div className='addMemoC2'>
+        {preImg ? <p  className='upload_img'><img src={preImg} alt="" onClick={uploadClick} /></p> : ''}
             <form onSubmit={(e)=>submit(e)}>
                 <input type="text" placeholder='제목을 입력하세요.' onChange={(e)=>setTitle(e.target.value)}/>
                 <textarea name="내용" placeholder='내용을 입력하세요.' onChange={(e)=>setContents(e.target.value)}></textarea>
@@ -72,7 +98,7 @@ function AddNote({setAddNote,dataFetch2}:any) {
                 </div> */}
             </div>
         </div>
-</article>
+    </article>
 </>
   );
 }

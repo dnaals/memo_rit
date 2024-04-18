@@ -1,6 +1,39 @@
 
 .root{
     position: relative;
+    .img_detail_back{
+        position: absolute;
+        width:100%;
+        height:100%;
+        backdrop-filter: brightness(20%);
+        top: 0;
+        left:0;
+        z-index: 20;
+    }
+    .img_detail{
+        position: absolute;
+        z-index: 21;
+        width:70%;
+        height:500px;
+        left:15%;
+        display:flex;
+        flex-direction: column;
+        align-items: end;
+        gap:20px;
+        p{
+            width:100%;
+            height:100%;
+            img{
+                width:100%;
+                height:100%;
+            }
+        }
+        >img{
+            width:30px;
+            height:35px;
+            margin-right: 20px;
+        }
+    }
     .addBack {
         // background-color: rgba(0, 0%, 0%,0.5);
         backdrop-filter: brightness(50%);
@@ -15,12 +48,12 @@
     
     .addMemo {
         position: absolute;
-        top: 45%;
+        top:50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 11;
         width: 70%;
-        height: 490px;
+        // height: 490px;
         background-color: #fff;
         border-radius: 10px;
     
@@ -33,27 +66,14 @@
             padding: 0 10px;
     
             .more {
-                img {
-                    // vertical-align: middle;
-                }
-                .more_more{
-                    display:block;
-                    &.active{
+                form{
+                    
+                    label{
                         display:none;
                     }
                 }
-                .more_picture{
-                    display:none;
-                    &.active{
-                        display:inline-block;
-                    }
-                }
-                .more_del{
-                    display:none;
-                    &.active{
-                        display:inline-block;
-                        margin:0 20px;
-                    }
+                >img:nth-of-type(2){
+                    margin-left: 20px;
                 }
             }
     
@@ -67,7 +87,21 @@
         .addMemoC2 {
             width: 90%;
             margin: 0 auto;
-    
+            
+            .upload_img{
+                margin:0 auto;
+                // width:80%;
+                height:100px;
+                overflow: hidden;
+                position: relative;
+                img{
+                    width:100%;
+                    position: absolute;
+                    top:50%;
+                    left:50%;
+                    transform: translate(-50%,-50%);
+                }
+            }
             >form {
                 width: 100%;
                 display: flex;
@@ -115,7 +149,7 @@
                 top: 0;
                 left: 7%;
     
-                img {}
+                
             }
     
             .bookmark {
@@ -124,15 +158,19 @@
                 right: 8%;
                 top: 5%;
     
-                img {}
+                
             }
         }
     }
 }
+.note::-webkit-scrollbar {
+    display: none;
+  }
 .note{
-    height:100vh;
+    height:80vh;
     background-color: #F1F4F9;
     padding:20px 0;
+    overflow: scroll;
     .search{
         margin:0 auto;
         width:70%;
@@ -198,6 +236,13 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+            .imgCheck{
+                position: absolute;
+                bottom:22%;
+                left:10%;
+                width:30px;
+                height:30px;
+            }
             >p{
                     margin:20px;
                     font-size: 16px;

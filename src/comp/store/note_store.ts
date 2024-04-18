@@ -29,19 +29,11 @@ export const useStore = create<any>((set:any)=>{
                     note.data = [...state.data2,id]
                 } else if (type == 'update'){
                     let d = state.data2.filter((obj:any)=>obj.id == id.id)
-                    console.log(d)
                     d[0].title = id.title;
                     d[0].contents = id.contents;
+                    d[0].color=id.color;
+                    d[0].bookmark=id.bookmark;
                     note.data = state.data2;
-                    // if(id.complete){
-                    //     d[0].complete = id.complete;
-                    //     note.data = state.data2;
-                    // } else{
-                        
-                    //     d[0].contents = id.contents;
-                    //     note.data = state.data2;
-                    // }
-
                 }
                 return {data2 : note.data}
             })

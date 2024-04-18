@@ -4,27 +4,39 @@ import "../../style/note.scss";
 import AddNote from './AddNote';
 import { useStore } from "../../store/note_store";
 import NoteComp from './NoteComp';
-
+import NoteSearch from './NoteSearch';
 function Note() {
     let {data2,dataFetch2} = useStore();
-    let [addnote,setAddNote] = useState(false);
+    const [addnote,setAddNote] = useState(false);
+    const [searchNote,setSearchNote] = useState([]);
+    
 
     useEffect(()=>{
         dataFetch2("all")
     },[])
-    const sortedData = [...data2].sort((a: any, b: any) => {
+    useEffect(()=>{
+        setSearchNote(data2)
+    },[data2])
+
+
+    const sortedData = [...searchNote].sort((a: any, b: any) => {
         const dateA = new Date(a.date.replace(/\./g, '/'));
         const dateB = new Date(b.date.replace(/\./g, '/'));
         return dateB.getTime() - dateA.getTime();
     });
+    const sorteDataBook = sortedData.sort((a:any, b:any) => (a.bookmark == "true" && b.bookmark == "false") ? -1 : 0);
+
+   
+
+
+
+
+
     return (
         <>
-        {addnote? <AddNote dataFetch2={dataFetch2} setAddNote={setAddNote}/> : ''}   
+        {addnote? <AddNote dataFetch2={dataFetch2} setAddNote={setAddNote}  /> : ''}   
         <div className='note'>
-            <form className='search'>
-                <input type="text" placeholder='검색어를 입력하라' />
-                <img src="/images/search.png" alt="aa" />
-            </form>
+           <NoteSearch data2={data2} setSearchNote={setSearchNote} />
             <figure className='note_screen'>
                 <figcaption className='note_add' onClick={()=>setAddNote(true)}>
                     <img src="/images/add.png" alt="aa" />
@@ -32,7 +44,7 @@ function Note() {
                     </div>
                 </figcaption>
                 {
-                    sortedData.map((obj:any,k:number)=>(
+                    sorteDataBook.map((obj:any,k:number)=>(
                         <NoteComp dataFetch2={dataFetch2} obj={obj} key={k}/>
                     ))
                 }

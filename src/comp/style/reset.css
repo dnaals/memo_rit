@@ -48,6 +48,9 @@ a{
 input{
 	padding:0;
 }
+input:focus{
+	outline:none;
+}
 *{
 	box-sizing: border-box;
 }

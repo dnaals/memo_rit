@@ -10,7 +10,7 @@ export async function PUT(req:any,{params}:any){
     let d = await req.json();
     let value = params.seq;
     let data:any = {}
-    data = await queryExecute('update note set title=?,contents=? where id=?',[d.title,d.contents,value]);
+    data = await queryExecute('update note set title=?,contents=?,color=?,bookmark=? where id=?',[d.title,d.contents,d.color,d.bookmark,value]);
     // if(d.complete){
     //     data = await queryExecute('update todo set complete=? where id=?',[d.complete,value]);
     // } else{
