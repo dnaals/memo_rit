@@ -1,9 +1,34 @@
 @import './reset.css';
+@import './mixin';
 body{
-    background-color: beige;
-    main{
-        width:768px;
-        margin:0 auto;
+    background-color: #525D7B;
+    display:flex;
+    align-items: center;
+    justify-content: center;
     
+    main{
+        width:1140px;
+        border-radius: 30px;
+        overflow: hidden;
+        margin:50px 0;
     }
 }
+@include res(s){
+    body{
+        main{
+            margin:0;
+        }
+    }
+}
+
+// @include res(m){
+//     main{
+//     width: 600px;
+//     }
+// }
+
+// @include res(s){
+//     main{
+//     width: 430px;
+//     }
+// }

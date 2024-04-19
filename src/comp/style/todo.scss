@@ -1,7 +1,8 @@
+@import './mixin';
 .todo{
     background-color: #F1F4F9;
     padding:20px 0;
-    
+    min-height: 490px;
     .days{
         width:70%;
         margin:20px auto;
@@ -187,5 +188,64 @@
             }
         }
         
+    }
+}
+
+
+
+//반응형
+
+@include res(l){   //768px~600px
+    body{
+        main{
+            width:100%;
+            .root{
+                div{
+                    .todo{
+                        >h2{
+                            width:537px;
+                        }
+                        .todo_text{
+                            width:537px;
+                        }
+                        .todo_screen{
+                            width:537px;
+                        }
+                        .past{
+                            width:537px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include res(m){
+    body{
+        main{
+            width:100%;
+            .root{
+                div{
+                    .todo{
+                        .days{
+
+                        }
+                        >h2{
+                            width:430px;
+                        }
+                        .todo_text{
+                            width:430px;
+                        }
+                        .todo_screen{
+                            width:430px;
+                        }
+                        .past{
+                            width:430px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

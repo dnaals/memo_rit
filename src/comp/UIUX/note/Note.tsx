@@ -10,7 +10,7 @@ function Note() {
     let {data2,dataFetch2} = useStore();
     const [addnote,setAddNote] = useState(false);
     const [searchNote,setSearchNote] = useState([]);
-    
+    const [searchBtn,setSearchBtn] = useState(false);
 
 
     useEffect(()=>{
@@ -20,6 +20,7 @@ function Note() {
     useEffect(()=>{
         setSearchNote(data2)
     },[data2])
+console.log('sdfdsf',data2);
 
 
     const sortedData = [...searchNote].sort((a: any, b: any) => {
@@ -29,7 +30,7 @@ function Note() {
     });
     const sorteDataBook = sortedData.sort((a:any, b:any) => (a.bookmark == "true" && b.bookmark == "false") ? -1 : 0);
 
-   
+    
 
 
 
@@ -37,9 +38,9 @@ function Note() {
 
     return (
         <>
-        {addnote? <AddNote dataFetch2={dataFetch2} setAddNote={setAddNote}  /> : ''}   
+        {addnote? <AddNote dataFetch2={dataFetch2} setAddNote={setAddNote} /> : ''}   
         <div className='note'>
-           <NoteSearch data2={data2} setSearchNote={setSearchNote} />
+            <NoteSearch data2={data2} setSearchNote={setSearchNote} searchBtn={searchBtn}  /> 
             <figure className='note_screen'>
                 <figcaption className='note_add' onClick={()=>setAddNote(true)}>
                     <img src="/images/add.png" alt="aa" />
@@ -52,7 +53,7 @@ function Note() {
                     ))
                 }
             </figure>
-
+            <img src={searchBtn?"/images/search_btn_off.png":"/images/search_btn.png"} alt="" className='search_btn' onClick={()=>setSearchBtn(!searchBtn)}/>
         </div>
         </>
     );

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 
-function NoteSearch({data2,setSearchNote}:any) {
+function NoteSearch({data2,setSearchNote,searchBtn}:any) {
 
     const [searchData,setSearchData] = useState('');
     const [searchContents,setSearchContents] = useState([]);
@@ -17,9 +17,9 @@ function NoteSearch({data2,setSearchNote}:any) {
     useEffect(() => {
         setSearchNote(searchContents);
     }, [searchContents]);
-    
+    console.log(searchBtn)
     return (
-        <form className='search' onSubmit={(e)=>searchNote(e)}>
+        <form className='search' onSubmit={(e)=>searchNote(e)} style={{display: searchBtn? 'block': 'none'}}>
             <input type="text" placeholder='검색어를 입력하라' value={searchData} onChange={(e)=>{setSearchData(e.target.value)}}/>
             <img src="/images/search.png" alt="aa" onClick={searchNote}/>
         </form>

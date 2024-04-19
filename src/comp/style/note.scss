@@ -1,6 +1,7 @@
-
+@import './mixin';
 .root{
     position: relative;
+    width:100%;
     .img_detail_back{
         position: absolute;
         width:100%;
@@ -52,7 +53,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 11;
-        width: 70%;
+        width: 537px;
         // height: 490px;
         background-color: #fff;
         border-radius: 10px;
@@ -176,19 +177,23 @@
     display: none;
   }
 .note{
-    height:80vh;
     background-color: #F1F4F9;
     padding:20px 0;
     overflow: scroll;
+    border-radius : 0 0 30px 30px;
+    min-height: 490px;
     .search{
         margin:0 auto;
-        width:70%;
+        width:80%;
         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
-        position: relative;
+        position: absolute;
+        bottom:6%;
+        left:10%;
+        z-index: 8;
         img{
             position: absolute;
             top:20%;
-            left:5%;
+            left:3%;
             cursor: pointer;
         }
         input{
@@ -207,8 +212,8 @@
     }
     .note_screen{
         display:flex;
-        width:70%;
-        margin:20px auto;
+        width:80%;
+        margin:40px auto;
         justify-content: start;
         gap:28px;
         flex-wrap: wrap;
@@ -307,4 +312,168 @@
         }
 
     }
+    .search_btn{
+        position: absolute;
+        bottom:5%;
+        right:5%;
+        z-index: 9;
+    }
+}
+
+
+
+
+
+//반응형 시작
+@include res(xl){ //1140~768px
+    body{
+        main{
+            width:80%;
+            .root{
+                .note{
+                    .note_screen{
+                        gap:20px;
+                    }
+                }
+            }
+        }
+    }
+}
+@include res(l){   //768px~600px
+    body{
+        main{
+            width:80%;
+            .root{
+                .note{
+                    // .search{
+                    //     width:537px;
+                    // }
+                    // .note_screen{
+                    //     width:537px;
+                    // }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+@include res(m) {   //550px~430px
+    body{
+        main{
+            width:100%;
+            .root{
+                .addMemo{
+                    width:430px;
+                }
+                .note{
+                    .search{
+                        // width:430px;
+                    }
+                    .note_screen{
+                        width:350px;
+                        // width:430px;
+                        // gap:20px;
+                        .addMemo{
+                            width:430px;
+                        }
+                        .note_add{
+                            // width:130px;
+                            // height:140px;
+                            border-radius: 10px;
+                            .note_contents_day{
+                                border-radius: 0 0 10px 10px;
+                            }
+                        }
+                        .note_contents{
+                            // width:130px;
+                            // height:140px;
+                            border-radius: 10px;
+                            .imgCheck{
+                                width:25px;
+                                height:25px;
+                            }
+                            .note_contents_day{
+                                border-radius: 0 0 10px 10px;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@include res(s) { //430px일때
+    body{
+        main{
+            width:100%;
+            height:100%;
+            border:none;
+            overflow: visible;
+            .root{
+                height:100%;
+                .addMemo{
+                    width:100%;
+                }
+                .note{
+                    border-radius: 0 0 0 0;
+                    min-height: 800px;
+                    .search_btn{
+                        position: fixed;
+                    }
+                    .search{
+                        position: fixed;
+                        width:340px;
+                    }
+                    .note_screen{
+                        width:340px;
+                        gap:15px;
+                        justify-content: space-between;
+                        .addMemo{
+                            width:100%;
+                            
+                        }
+                        .note_add{
+                            // width:100px;
+                            // height:110px;
+                            border-radius: 10px;
+                            .note_contents_day{
+                                border-radius: 0 0 10px 10px;
+                            }
+                        }
+                        .note_contents{
+                            // width:100px;
+                            // height:110px;
+                            border-radius: 10px;
+                            .note_contents_day{
+                                border-radius: 0 0 10px 10px;
+                                p{
+                                    font-size: 12px;
+                                }
+                            }
+                            .imgCheck{
+                                width:20px;
+                                height:20px;
+                            }
+                            .note_contents_back{
+                                p{
+                                    font-size: 12px;
+                                }
+                            }
+                            >p{
+                                font-size: 14px;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+
 }

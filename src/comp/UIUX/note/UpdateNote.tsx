@@ -23,6 +23,8 @@ function UpdateNote({upNote,setClick2,dataFetch2}:any) {
             const storageRef = ref(storage, upNote.id + "/"+file.name);   
             const a = await uploadBytes(storageRef, file)       
             url = await getDownloadURL(ref(storage, a.metadata.fullPath));
+        } else if(upNote.url){
+            url = upNote.url
         }
         let value = {
             title:noteTitle,

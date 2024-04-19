@@ -19,7 +19,6 @@ function PastComp({pData,d}:any) {
     }
 
     const sortedData = [...pData].sort((a: any, b: any) => new Date(b).getTime() - new Date(a).getTime());
-    console.log(sortedData)
 
     
     return (
