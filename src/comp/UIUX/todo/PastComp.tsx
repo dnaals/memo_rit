@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useStore } from '../../store/todo_store';
 
 function PastComp({pData,d}:any) {
+    let {dataFetch} = useStore();
     let [check, setCheck] = useState(false);
     const checkHandle =  (obj:any)=>{
         setCheck(!check)
@@ -12,10 +13,13 @@ function PastComp({pData,d}:any) {
         }
         dataFetch('update',upCheckValue)
     }
-    let {dataFetch} = useStore();
+    const del = (obj:number)=>{
+        
+        dataFetch('delete',obj)
+    }
 
     const sortedData = [...pData].sort((a: any, b: any) => new Date(b).getTime() - new Date(a).getTime());
-
+    console.log(sortedData)
 
     
     return (
@@ -28,6 +32,7 @@ function PastComp({pData,d}:any) {
                             <div key={k} className='past_data'>
                                 <img src={item.complete=="false" ? "/images/no_complete.png":"/images/complete.png" } onClick={()=>checkHandle(item)} alt="aa" />
                                 <p>{item.contents}</p>
+                                <img src="/images/delete_gray.png" alt="asd" onClick={()=>{del(item.idx)}}/>
                             </div>
                         ))}
                     </div>

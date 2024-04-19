@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import UpdateNote from './UpdateNote';
 
+
 function NoteComp({obj,dataFetch2}:any) {
     let [click2,setClick2] = useState(false);
     let [upNote,setUpNote] = useState([]);
@@ -11,6 +12,13 @@ function NoteComp({obj,dataFetch2}:any) {
         setUpNote(obj);
     }
 
+    
+
+ 
+
+
+    
+    
     return (
         <>
             {

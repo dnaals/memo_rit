@@ -5,15 +5,18 @@ import AddNote from './AddNote';
 import { useStore } from "../../store/note_store";
 import NoteComp from './NoteComp';
 import NoteSearch from './NoteSearch';
+
 function Note() {
     let {data2,dataFetch2} = useStore();
     const [addnote,setAddNote] = useState(false);
     const [searchNote,setSearchNote] = useState([]);
     
 
+
     useEffect(()=>{
         dataFetch2("all")
     },[])
+    
     useEffect(()=>{
         setSearchNote(data2)
     },[data2])

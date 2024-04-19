@@ -13,7 +13,7 @@ function AddNote({setAddNote,dataFetch2}:any) {
     let [title,setTitle] = useState('');
     let [contents,setContents] = useState('');
     let [color,setColor] = useState('#4385F5');
-    let [file,setFile] = useState<any>();
+    let [file,setFile] = useState<any>(null);
     let [preImg,setPreImg] = useState('');
     let [detail,setDetail]= useState(false);
 
@@ -61,7 +61,10 @@ const uploadClick = ()=>{
     setDetail(true)
 }
 const detail_del=()=>{
-console.log('삭제')
+    setPreImg('')
+    setDetail(false)
+    setFile(null)
+    
 }
   return (
     <>

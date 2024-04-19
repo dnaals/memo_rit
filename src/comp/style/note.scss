@@ -66,14 +66,20 @@
             padding: 0 10px;
     
             .more {
+                display:flex;
+                align-items: center;
                 form{
-                    
+                    cursor: pointer;
+                    img{
+                        transform: translateY(2px);
+                    }
                     label{
                         display:none;
                     }
                 }
-                >img:nth-of-type(2){
+                >img{
                     margin-left: 20px;
+                    cursor: pointer;
                 }
             }
     
@@ -81,6 +87,7 @@
                 color: #D2D2D4;
                 font-weight: bold;
                 font-size: 20px;
+                cursor: pointer;
             }
         }
     
@@ -89,6 +96,7 @@
             margin: 0 auto;
             
             .upload_img{
+                cursor: pointer;
                 margin:0 auto;
                 // width:80%;
                 height:100px;
@@ -144,6 +152,7 @@
             border-radius: 0 0 10px 10px;
     
             .colorPalette {
+                cursor: pointer;
                 position: absolute;
                 transform: translateY(-50%);
                 top: 0;
@@ -157,7 +166,7 @@
                 transform: translateY(-50%);
                 right: 8%;
                 top: 5%;
-    
+                cursor: pointer;
                 
             }
         }
@@ -201,9 +210,10 @@
         width:70%;
         margin:20px auto;
         justify-content: start;
-        gap:20px;
+        gap:28px;
         flex-wrap: wrap;
         .note_add{
+            cursor: pointer;
             width:160px;
             height:170px;
             background-color: white;
@@ -229,6 +239,7 @@
             
         }
         .note_contents{
+            cursor: pointer;
             width:160px;
             height:170px;
             background-color: white;

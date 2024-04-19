@@ -33,6 +33,7 @@ export const useStore = create<any>((set:any)=>{
                     d[0].contents = id.contents;
                     d[0].color=id.color;
                     d[0].bookmark=id.bookmark;
+                    d[0].url=id.url;
                     note.data = state.data2;
                 }
                 return {data2 : note.data}
