@@ -20,7 +20,6 @@ function Note() {
     useEffect(()=>{
         setSearchNote(data2)
     },[data2])
-console.log('sdfdsf',data2);
 
 
     const sortedData = [...searchNote].sort((a: any, b: any) => {

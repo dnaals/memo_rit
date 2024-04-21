@@ -195,25 +195,33 @@
 
 //반응형
 
-@include res(l){   //768px~600px
+@include res(xl){   //1140~768
     body{
         main{
-            width:100%;
+            width:80%;
+        }
+    }
+}
+
+@include res(l){
+    body{
+        main{
+            width:80%;
             .root{
                 div{
                     .todo{
-                        >h2{
-                            width:537px;
+                        .days{
+                            p:nth-of-type(1){
+
+                            }
+                            p:nth-of-type(2){
+                                font-size: 60px;
+                            }
+                            p:nth-of-type(3){
+                                font-size: 30px;
+                            }
                         }
-                        .todo_text{
-                            width:537px;
-                        }
-                        .todo_screen{
-                            width:537px;
-                        }
-                        .past{
-                            width:537px;
-                        }
+                        
                     }
                 }
             }
@@ -229,19 +237,91 @@
                 div{
                     .todo{
                         .days{
-
-                        }
-                        >h2{
-                            width:430px;
+                            p:nth-of-type(1){
+                                font-size: 16px;
+                            }
+                            p:nth-of-type(2){
+                                font-size: 50px;
+                            }
+                            p:nth-of-type(3){
+                                font-size: 20px;
+                            }
                         }
                         .todo_text{
-                            width:430px;
+                            width:90%;
                         }
-                        .todo_screen{
-                            width:430px;
+                        >h2{
+                            width:90%;
+                        }
+                        .screenDiv{
+                            .todo_screen{
+                                width:90%;
+                            }
                         }
                         .past{
-                            width:430px;
+                            width:90%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include res(s){
+    body{
+        main{
+            width:100%;
+            height:100%;
+            border:none;
+            overflow: visible;
+            .root{
+                div{
+                    .todo{
+                        min-height: 800px;
+                        .days{
+                            p:nth-of-type(1){
+                                font-size: 16px;
+                                padding:5px;
+                            }
+                            p:nth-of-type(2){
+                                font-size: 50px;
+                            }
+                            p:nth-of-type(3){
+                                font-size: 20px;
+                            }
+                        }
+                        .todo_text{
+                            width:90%;
+                        }
+                        >h2{
+                            width:90%;
+                            font-size: 14px;
+                        }
+                        .screenDiv{
+                            .todo_screen{
+                                width:90%;
+                                figcaption{
+                                    >img{
+                                        left:20px;
+                                    }
+                                    .todo_list{
+                                        height:50px;
+                                        font-size: 14px;
+                                        p{
+                                            padding: 15px 15px 15px 60px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .past{
+                            width:90%;
+                            >div{
+                                .past_data{
+                                    margin: 10px 0 10px 30px;
+                                }
+                            }
                         }
                     }
                 }
