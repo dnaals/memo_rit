@@ -1,8 +1,7 @@
 import axios from "axios";
 import {create} from "zustand";
 const request = axios.create({
-    baseURL : "http://localhost:3000/api",
-    timeout : 2000
+    baseURL : "http://localhost:3000/api"
 })
 export const useStore = create<any>((set:any)=>{
     return{
