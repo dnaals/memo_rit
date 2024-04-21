@@ -1,7 +1,7 @@
 import axios from "axios";
 import {create} from "zustand";
 const request = axios.create({
-    baseURL : "https://nextjs-todo-project-eta.vercel.app/api"
+    baseURL : "/api"
 })
 export const useStore = create<any>((set:any)=>{
     return{
