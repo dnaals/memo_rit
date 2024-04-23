@@ -2,11 +2,11 @@ import { createPool } from 'mysql2'
 
 let mysql = require('mysql2');
 const pool = {
-    host:  process.env.HOST as string,
-    user: process.env.USER as string,
-    password: process.env.PASSWORD as string,
-    database: process.env.DATABASE as string,
-    port: process.env.PORT as string,
+    host:  process.env.HOST ,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE,
+    port: process.env.PORT
 }
 
 export const queryExecute = async (query:any,values:any)=>{
