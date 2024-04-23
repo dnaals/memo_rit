@@ -21,6 +21,7 @@
 
 
 **배포링크 : <a href="https://nextjs-todo-project-eta.vercel.app/" target="_blank">https://nextjs-todo-project-eta.vercel.app/</a>**
+vercel을 이용하여 배포를 진행했으며 , 서버는 cloudtype으로 배포를 했습니다. 
 
 ## 🌈 주요기능
 <ul>
