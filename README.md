@@ -22,7 +22,7 @@
 
 **배포링크 : <a href="https://nextjs-todo-project-eta.vercel.app/"</a>**
 
-## 🌈 담당 Page 주요기능
+## 🌈 주요기능
 <ul>
   <li>MySql을 이용한 서버 CRUD 진행</li>
   <li>FireBase를 활용한 사진 업로드 (노트부분)</li>
