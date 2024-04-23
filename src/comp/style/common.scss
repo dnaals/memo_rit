@@ -1,6 +1,6 @@
 @import './reset.css';
 @import './mixin';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Pacifico&display=swap');
+@import './global.scss';
 body{
     background-color: #525D7B;
     display:flex;
