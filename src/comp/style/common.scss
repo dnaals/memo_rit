@@ -1,5 +1,6 @@
 @import './reset.css';
 @import './mixin';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Pacifico&display=swap');
 body{
     background-color: #525D7B;
     display:flex;
@@ -10,6 +11,7 @@ body{
         width:1140px;
         border-radius: 30px;
         margin:50px 0;
+        font-family: "Noto Sans KR", sans-serif;
     }
 }
 @include res(s){
