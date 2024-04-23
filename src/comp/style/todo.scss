@@ -66,6 +66,7 @@
             
             figcaption{
                 position: relative;
+                cursor: pointer;
                 .update_todo{
                     display:none;
                     &.active{
