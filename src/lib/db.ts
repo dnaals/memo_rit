@@ -6,7 +6,7 @@ const pool = {
     user: "root",
     password: "dnals153",
     database: "todolist",
-    port: 3306,
+    port: 30096,
 }
 
 export const queryExecute = async (query:any,values:any)=>{
