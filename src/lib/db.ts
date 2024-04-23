@@ -2,7 +2,7 @@ import { createPool } from 'mysql2'
 
 let mysql = require('mysql2');
 const pool = {
-    host: "127.0.0.1",
+    host: "svc.sel5.cloudtype.app",
     user: "root",
     password: "dnals153",
     database: "todolist",
