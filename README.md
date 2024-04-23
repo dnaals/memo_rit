@@ -20,7 +20,7 @@
   </ul>
 
 
-**배포링크 : <a href="https://nextjs-todo-project-eta.vercel.app/"</a>**
+**배포링크 : <a href="https://nextjs-todo-project-eta.vercel.app/" target="_blank">https://nextjs-todo-project-eta.vercel.app/</a>**
 
 ## 🌈 주요기능
 <ul>
