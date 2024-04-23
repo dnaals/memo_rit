@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 🍺 팀 프로젝트 : Kook Kook
+**프로젝트 소개**
+  <ul>
+    <li>개인 프로젝트 입니다.</li>
+    <li>Figma를 이용하여 혼자 디자인을 진행했습니다.</li>
+    <li>KookKook 이라는 프로젝트를 진행하며 개인적으로 아쉬웠던 부분들을 보완해보자 하는 생각으로 시작했습니다.</li>
+    <li>진행기간 : 2024.04.10 ~ 2024.04.23</li>    
+  </ul>
+  
+**기술 스택**
+  <ul>
+    <li>
+      <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=Next.js&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/>
+      <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black"/>
+      <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=Vercel&logoColor=white"/>
+    </li>
+  </ul>
 
-## Getting Started
 
-First, run the development server:
+**배포링크 : <a href="https://nextjs-todo-project-eta.vercel.app/"</a>**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌈 담당 Page 주요기능
+<ul>
+  <li>MySql을 이용한 서버 CRUD 진행</li>
+  <li>FireBase를 활용한 사진 업로드 (노트부분)</li>
+  <li>날짜에 따른 데이터 출력</li>
+</ul>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨개발후기
+기존 kookkook프로젝트는 너무 방대한 데이터 양으로 인해 CRUD가 너무 느렸고 정확한 동작을 하기 어려웠습니다. 그 부분이 아쉬움이 많이 남았고 혼자 다시 진행하려 노력했습니다.
+몽고DB는 다뤄봤으니 MySql을 이용해봤습니다. firebase를 사용하며 초반에 데이터를 불러오거나 사진업로드, 수정 하는 부분에서 서버를 이용하다보니 딜레이가 있긴했습니다. 하지만 기존 프로젝트보다 나아진 모습을 보여서 완성하고 굉장히 뿌듯했던 프로젝트입니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
