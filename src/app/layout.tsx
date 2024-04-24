@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/comp/style/common.scss";
 import Header from "@/comp/UIUX/Header";
 import { Suspense } from "react";
+import Loading from "@/comp/UIUX/Loading";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +21,7 @@ export default function RootLayout({
         <main>
           <div className="root">
             <Header />
-            <Suspense fallback="loading...">
+            <Suspense fallback={<Loading/>}>
               {children}
             </Suspense>
             {/* <Footer/> */}
