@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/comp/style/common.scss";
 import Header from "@/comp/UIUX/Header";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +20,9 @@ export default function RootLayout({
         <main>
           <div className="root">
             <Header />
-            {children}
+            <Suspense fallback="loading...">
+              {children}
+            </Suspense>
             {/* <Footer/> */}
           </div>
         </main>
