@@ -36,6 +36,7 @@ function AddNote({setAddNote,dataFetch2}:any) {
 
 
     const saveBtn= async()=>{
+        alert("저장중입니다. 잠시만 기다려주세요")
         let num = Date.now()
         let url='';
         if(file){

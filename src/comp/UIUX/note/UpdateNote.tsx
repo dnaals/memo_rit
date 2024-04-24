@@ -18,6 +18,7 @@ function UpdateNote({upNote,setClick2,dataFetch2}:any) {
         setClick2(false);
     }
     const updateNote = async(id:number)=>{
+        alert("저장중입니다. 잠시만 기다려주세요")
         let url='';
         if(file){
             const storageRef = ref(storage, upNote.id + "/"+file.name);   

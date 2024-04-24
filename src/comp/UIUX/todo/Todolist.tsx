@@ -5,6 +5,7 @@ import { useStore } from "../../store/todo_store";
 import { format } from 'date-fns'; 
 import TodoComp from "./TodoComp";
 import PastComp from "./PastComp";
+import Loading from "../Loading";
 
 function Todolist() {
     let {data,dataFetch} = useStore();
@@ -38,6 +39,9 @@ function Todolist() {
         dataFetch("all")
     },[])
     
+    if(data.length==0){
+        return <Loading/>
+    }
 
     const todayData =  data.filter((obj:any)=>obj.date == formatToday);
     let pastData = data.filter((obj:any)=>obj.date !== formatToday);
