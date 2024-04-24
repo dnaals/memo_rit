@@ -20,8 +20,9 @@ export default function RootLayout({
       
         <main>
           <div className="root">
-            <Suspense fallback={<Loading/>}>
             <Header />
+            
+            <Suspense fallback={<Loading/>}>
               {children}
             </Suspense>
           </div>

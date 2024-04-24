@@ -5,13 +5,13 @@ import AddNote from './AddNote';
 import { useStore } from "../../store/note_store";
 import NoteComp from './NoteComp';
 import NoteSearch from './NoteSearch';
+import Loading from '../Loading';
 
 function Note() {
     let {data2,dataFetch2} = useStore();
     const [addnote,setAddNote] = useState(false);
     const [searchNote,setSearchNote] = useState([]);
     const [searchBtn,setSearchBtn] = useState(false);
-
 
     useEffect(()=>{
         dataFetch2("all")
@@ -31,10 +31,9 @@ function Note() {
 
     
 
-
-
-
-
+    if(data2.length ==0){
+        return <Loading/>
+    }
     return (
         <>
         {addnote? <AddNote dataFetch2={dataFetch2} setAddNote={setAddNote} /> : ''}   
@@ -56,6 +55,7 @@ function Note() {
         </div>
         </>
     );
+
 }
 
 export default Note;
